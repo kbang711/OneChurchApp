@@ -3,7 +3,10 @@ package com.onechurch;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.i18n.reactnativei18n.ReactNativeI18n;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import io.invertase.firebase.RNFirebasePackage;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -25,6 +28,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGoogleSigninPackage(),
+            new FBSDKPackage(),
+            new RNFirebasePackage(),
+
             new ReactNativeI18n(),
             new VectorIconsPackage()
       );
