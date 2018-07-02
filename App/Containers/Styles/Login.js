@@ -19,7 +19,7 @@ export default StyleSheet.create({
   logoText: {
     color: Colors.white,
     opacity: 0.9,
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '200',
     letterSpacing: 1
   },

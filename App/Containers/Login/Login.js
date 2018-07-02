@@ -125,9 +125,12 @@ export default class Login extends Component {
             <View style={styles.centered}>
               <Image source={Images.logo} style={!(this.state.signup || this.state.login) ? styles.logo : styles.logoMoved} resizeMode='stretch' />
               <Text style={styles.logoText}>
-                one
                 <Text style={{fontWeight: 'bold'}}>
-                  church
+                  vision
+                </Text>
+                as
+                <Text style={{fontWeight: 'bold'}}>
+                  one
                 </Text>
               </Text>
             </View>
@@ -165,7 +168,7 @@ export default class Login extends Component {
                 style={styles.loginButtonText}
               >
                 or login with&nbsp;
-                <Text style={{fontWeight: 'bold'}}>OneChurch</Text>
+                <Text style={{fontWeight: 'bold'}}>Vision</Text>
               </Text>
             </TouchableOpacity>
           </View>

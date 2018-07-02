@@ -26,7 +26,7 @@ export default class DefaultLogin extends Component {
       >
         <View style={styles.signup}>
           <Text style={styles.label}>
-            Login with an existing <Text style={{fontWeight: 'bold'}}>OneChurch</Text> account
+            Login with an existing <Text style={{fontWeight: 'bold'}}>Vision</Text> account
           </Text>
           <Icon name="envelope" style={styles.textIcon} />
           <TextInput
