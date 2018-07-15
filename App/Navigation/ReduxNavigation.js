@@ -1,11 +1,27 @@
 import React from 'react'
-import { BackHandler, Platform } from 'react-native'
-import { addNavigationHelpers } from 'react-navigation'
-import { createReduxBoundAddListener } from 'react-navigation-redux-helpers'
+import { BackHandler, Platform, View } from 'react-native'
 import { connect } from 'react-redux'
-import AppNavigation from './AppNavigation'
+import firebase from 'react-native-firebase';
+import Login from '../Containers/Login/Login'
+import TabNavigation from './TabNavigation'
 
 class ReduxNavigation extends React.Component {
+  constructor() {
+    super();
+    this.unsubscriber = null;
+    this.state = {
+      signup: false,
+      login: false,
+      user: null
+    }
+  }
+
+  componentDidMount() {
+    this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+      this.setState({ user })
+    })
+  }
+
   componentWillMount () {
     if (Platform.OS === 'ios') return
     BackHandler.addEventListener('hardwareBackPress', () => {
@@ -26,7 +42,10 @@ class ReduxNavigation extends React.Component {
   }
 
   render () {
-    return <AppNavigation navigation={addNavigationHelpers({ dispatch: this.props.dispatch, state: this.props.nav, addListener: createReduxBoundAddListener('root') })} />
+    if (!this.state.user) {
+      return <Login />
+    }
+    return <TabNavigation />
   }
 }
 

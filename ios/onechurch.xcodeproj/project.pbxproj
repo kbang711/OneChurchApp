@@ -64,6 +64,7 @@
 		9955527F20E2AC2D00AC2B9C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955527120E2AC2C00AC2B9C /* FBSDKCoreKit.framework */; };
 		9955528020E2AC2D00AC2B9C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955527120E2AC2C00AC2B9C /* FBSDKCoreKit.framework */; };
 		9955528120E2AC2D00AC2B9C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955527120E2AC2C00AC2B9C /* FBSDKCoreKit.framework */; };
+		99D8801320FB96D2009D5ED6 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D8800F20FB96B7009D5ED6 /* libReactNativeNavigation.a */; };
 		99EB44E020E2025200082548 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99EB44DF20E2025200082548 /* GoogleService-Info.plist */; };
 		99EB44E120E2025200082548 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99EB44DF20E2025200082548 /* GoogleService-Info.plist */; };
 		99EB44E220E2025200082548 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99EB44DF20E2025200082548 /* GoogleService-Info.plist */; };
@@ -355,6 +356,13 @@
 			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
 			remoteInfo = RNGoogleSignin;
 		};
+		99D8800E20FB96B7009D5ED6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99D87FE420FB96B6009D5ED6 /* ReactNativeNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
+			remoteInfo = ReactNativeNavigation;
+		};
 		99E6370D20E2A4E40073C5E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55501DB31E2E4D7C9F0DA437 /* RCTFBSDK.xcodeproj */;
@@ -437,6 +445,7 @@
 		9955526F20E2AC2A00AC2B9C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		9955527020E2AC2B00AC2B9C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		9955527120E2AC2C00AC2B9C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		99D87FE420FB96B6009D5ED6 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		99EB44DF20E2025200082548 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EEC1D87810712BEB9483490 /* Pods-onechurch-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onechurch-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-onechurch-tvOSTests/Pods-onechurch-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7A9244CC7AA4825A2E4BBDF /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -468,6 +477,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D8801320FB96D2009D5ED6 /* libReactNativeNavigation.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				9955527220E2AC2C00AC2B9C /* FBSDKLoginKit.framework in Frameworks */,
@@ -719,6 +729,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				99D87FE420FB96B6009D5ED6 /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -780,6 +791,14 @@
 			isa = PBXGroup;
 			children = (
 				995552BD20E2B31300AC2B9C /* libRNGoogleSignin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99D87FE520FB96B6009D5ED6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99D8800F20FB96B7009D5ED6 /* libReactNativeNavigation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -994,6 +1013,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 99D87FE520FB96B6009D5ED6 /* Products */;
+					ProjectRef = 99D87FE420FB96B6009D5ED6 /* ReactNativeNavigation.xcodeproj */;
 				},
 				{
 					ProductGroup = 99FE827B20E205CE0047878D /* Products */;
@@ -1276,6 +1299,13 @@
 			fileType = archive.ar;
 			path = libRNGoogleSignin.a;
 			remoteRef = 995552BC20E2B31300AC2B9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99D8800F20FB96B7009D5ED6 /* libReactNativeNavigation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeNavigation.a;
+			remoteRef = 99D8800E20FB96B7009D5ED6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		99E6370E20E2A4E40073C5E5 /* libRCTFBSDK.a */ = {
@@ -1615,6 +1645,7 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 				);
 				INFOPLIST_FILE = onechurch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1648,6 +1679,7 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 				);
 				INFOPLIST_FILE = onechurch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

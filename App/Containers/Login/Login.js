@@ -106,18 +106,6 @@ export default class Login extends Component {
   }
 
   render () {
-    if (this.state.user) {
-      return (
-        <View>
-          <TouchableOpacity
-            style={styles.facebookButton}
-            onPress={() => firebase.auth().signOut()}
-          >
-            <Text>Logout</Text>
-          </TouchableOpacity>
-        </View>
-      )
-    }
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='cover' blurRadius={ !(this.state.signup || this.state.login) ? 0 : 10} />

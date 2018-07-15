@@ -44,6 +44,16 @@ const ApplicationStyles = {
       ...Fonts.style.h2,
       fontSize: 14,
       color: Colors.text
+    },
+    leftHeaderButton: {
+      position: 'absolute',
+      top: 20,
+      left: 20
+    },
+    rightHeaderButton: {
+      position: 'absolute',
+      top: 20,
+      right: 20
     }
   },
   darkLabelContainer: {
