@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, TouchableOpacity, View, TextInput } from 'react-native'
+import { Text, TouchableOpacity, View, TextInput, ActivityIndicator } from 'react-native'
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -57,7 +57,11 @@ export default class Signup extends Component {
             <Text
               style={styles.buttonText}
             >
-              Sign Up
+              {
+                this.props.loading ?
+                  <ActivityIndicator size="small" color="#fff" /> :
+                  'Signup'
+              }
             </Text>
           </TouchableOpacity>
         </View>

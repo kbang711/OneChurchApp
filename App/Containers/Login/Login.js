@@ -19,7 +19,8 @@ export default class Login extends Component {
     this.state = {
       signup: false,
       login: false,
-      user: null
+      user: null,
+      loading: false
     }
   }
 
@@ -46,14 +47,12 @@ export default class Login extends Component {
   
       const data = await GoogleSignin.signIn();
   
-      // create a new firebase credential with the token
       const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
-      // login with credential
+
       const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
   
-      console.info(JSON.stringify(currentUser.user.toJSON()));
     } catch (e) {
-      console.error(e);
+      alert(e);
     }
   }
 
@@ -61,47 +60,57 @@ export default class Login extends Component {
     try {
       const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
   
-      if (result.isCancelled) {
-        throw new Error('User cancelled request'); // Handle this however fits the flow of your app
-      }
-  
-      console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`);
-  
-      // get the access token
       const data = await AccessToken.getCurrentAccessToken();
   
       if (!data) {
-        throw new Error('Something went wrong obtaining the users access token'); // Handle this however fits the flow of your app
+        alert('Something went wrong obtaining the users access token')
       }
   
-      // create a new firebase credential with the token
       const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
       
-      // login with credential
       const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
-      console.log(currentUser)
     } catch (e) {
-      console.log(e);
+      alert(e);
     }
   }
 
   handleLogin = (email, password) => {
+    this.setState({
+      loading: true
+    })
     firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(e => {
+        alert(e)
+        this.setState({
+          loading: false
+        })
+      })
   }
 
   handleSignup = (email, password) => {
+    this.setState({
+      loading: true
+    })
     firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(e => {
+        alert(e)
+        this.setState({
+          loading: false
+        })
+      })
   }
 
   handleSignupClose = () => {
     this.setState({
-      signup: false
+      signup: false,
+      loading: false
     })
   }
 
   handleLoginClose = () => {
     this.setState({
-      login: false
+      login: false,
+      loading: false
     })
   }
 
@@ -178,11 +187,13 @@ export default class Login extends Component {
           visible={this.state.signup}
           handleClose={this.handleSignupClose}
           handleSignup={this.handleSignup}
+          loading={this.state.loading}
         />
         <DefaultLogin
           visible={this.state.login}
           handleClose={this.handleLoginClose}
           handleLogin={this.handleLogin}
+          loading={this.state.loading}
         />
       </View>
     )

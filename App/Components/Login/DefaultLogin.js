@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, TouchableOpacity, View, TextInput } from 'react-native'
+import { Text, TouchableOpacity, View, TextInput, ActivityIndicator } from 'react-native'
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -7,9 +7,12 @@ import styles from '../Styles/Login'
 
 export default class DefaultLogin extends Component {
 
-  state = {
-    email: null,
-    password: null
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: null,
+      password: null
+    }
   }
 
   handleLoginButton = () => {
@@ -52,7 +55,12 @@ export default class DefaultLogin extends Component {
             <Text
               style={styles.buttonText}
             >
-              Login
+              {
+                this.props.loading ?
+                  <ActivityIndicator size="small" color="#fff" /> :
+                  'Login'
+              }
+              
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
