@@ -8,7 +8,6 @@ export default class EditProfile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: 'mck76131',
       firstName: 'Matthew',
       lastName: 'Kim',
       city: 'Suwanee',
@@ -30,16 +29,6 @@ export default class EditProfile extends Component {
     return (
       <View style={styles.editProfileContainer}>
         <ScrollView style={styles.profileContainer}>
-          <View style={styles.profileItem}>
-            <Text style={styles.profileText}>
-              Username
-            </Text>
-            <TextInput
-              value={this.state.username}
-              style={styles.profileInput}
-              onChangeText={(value) => this.setState({username: value, changed: true})}
-            />
-          </View>
           <View style={styles.profileItem}>
             <Text style={styles.profileText}>
               First Name

@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import firebase from 'react-native-firebase';
 import Login from '../Containers/Login/Login'
 import TabNavigation from './TabNavigation'
+import { Images } from '../Themes';
+import styles from './Styles/NavigationStyles';
 
 class ReduxNavigation extends React.Component {
   constructor() {
@@ -12,7 +14,7 @@ class ReduxNavigation extends React.Component {
     this.state = {
       signup: false,
       login: false,
-      user: null
+      user: {}
     }
   }
 
@@ -20,6 +22,12 @@ class ReduxNavigation extends React.Component {
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user })
     })
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscriber) {
+      this.unsubscriber();
+    }
   }
 
   componentWillMount () {
@@ -42,10 +50,19 @@ class ReduxNavigation extends React.Component {
   }
 
   render () {
-    if (!this.state.user) {
+    if (this.state.user && this.state.user !== {}) {
+      return <TabNavigation />
+    } else if (this.state.user == null) {
       return <Login />
     }
-    return <TabNavigation />
+    return (
+      <View>
+        <Image
+          style={styles.backgroundImage}
+          source={Images.background}
+        />
+      </View>
+    )
   }
 }
 

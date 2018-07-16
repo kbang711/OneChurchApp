@@ -24,18 +24,6 @@ export default class Login extends Component {
     }
   }
 
-  componentDidMount() {
-    this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
-      this.setState({ user })
-    })
-  }
-
-  componentWillUnmount() {
-    if (this.unsubscriber) {
-      this.unsubscriber();
-    }
-  }
-
   handleGoogleButton = async () => {
     try {
       // Add any configuration settings here:

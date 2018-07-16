@@ -12,13 +12,29 @@ export default class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      edit: false
+      edit: false,
+      user: firebase.auth().currentUser
     }
   }
 
   handleEditProfile = (value) => {
     this.setState({
       edit: value
+    })
+  }
+
+  handleAddPhoto = () => {
+    firebase.auth().currentUser.updateProfile({
+      photoURL: 'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-1/p320x320/33144997_10211463134517433_8194339027109806080_n.jpg?_nc_cat=0&oh=ddfaaa9dcca9de8cc6c000332b80ef84&oe=5BE0DD64',
+      phoneNumber: '678-646-9239',
+      metadata: {
+        state: 'GA',
+        city: 'Suwanee',
+        church: 'Grace Midtown'
+      }
+    })
+    .catch(e => {
+      alert(e)
     })
   }
 
@@ -53,11 +69,11 @@ export default class Profile extends Component {
         }
         <Image
           style={styles.profilePicture}
-          source={Images.profilePicture}
+          source={{uri:(this.state.user.photoURL)}}
         />
         {
-          this.state.edit &&
-            <TouchableOpacity style={styles.addProfilePicture}>
+          (this.state.edit || !this.state.user.photoURL) &&
+            <TouchableOpacity style={styles.addProfilePicture} onPress={this.handleAddPhoto}>
               <Icon
                 name="camera"
                 color='rgba(255,255,255,0.7)'
@@ -67,15 +83,15 @@ export default class Profile extends Component {
         }
         {
           this.state.edit ?
-            <EditProfile handleEditProfile={this.handleEditProfile} /> : 
+            <EditProfile handleEditProfile={this.handleEditProfile} user={this.state.user} /> : 
             (
               <View style={{flex: 1}}>
                 <ScrollView style={styles.profileContainer}>
                   <Text style={styles.profileName}>
-                    Matthew Kim
+                    { this.state.user.displayName }
                   </Text>
                   <Text style={styles.profileUsername}>
-                    mck76131
+                    { this.state.user.email }
                   </Text>
                 </ScrollView>
                 <TouchableOpacity style={styles.signoutButton} onPress={this.handleSignout}>
